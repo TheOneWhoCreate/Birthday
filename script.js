@@ -1,4 +1,5 @@
 let currentIndex = 0;
+let paletteIndex = 0;
 const slides = document.getElementById("slides");
 const totalSlides = slides.children.length;
 const dotsContainer = document.getElementById("dots");
@@ -48,18 +49,19 @@ const palettes = {
     party: ["#ff6b6b", "#ffd93d", "#6bcbff", "#6bff91", "#c77dff", "#ff8fab"],
     neon: ["#ff005d", "#00f5d4", "#fee440", "#8338ec", "#fb5607", "#3a86ff"],
     pastel: ["#fbb1bd", "#ffd6a5", "#cdb4db", "#bde0fe", "#caffbf", "#fff1c1"],
-    vibrant: ["#ff4d6d", "#ffb400", "#00b8a9", "#f0f3bd", "#9bc53d", "#5bc0eb"],
+    // vibrant: ["#ff4d6d", "#ffb400", "#00b8a9", "#f0f3bd", "#9bc53d", "#5bc0eb"],
     gold: ["#d4af37", "#ffd700", "#ffecb3", "#fff8e1", "#f5f5dc", "#faf0be"],
 };
 
 const paletteNames = Object.keys(palettes);
-const selectedPalette =
-    palettes[paletteNames[Math.floor(Math.random() * paletteNames.length)]];
-
 
 // ---------- CONFETTI ----------
 const wrapper = document.getElementById("confetti-wrapper");
 function createConfetti() {
+    // Pick palette in sequence
+    const selectedPalette = palettes[paletteNames[paletteIndex]];
+    paletteIndex = (paletteIndex + 1) % paletteNames.length;
+
     for (let i = 0; i < 80; i++) {   // ⬅ reduce from 100 (see below)
         const confetti = document.createElement("div");
         confetti.className = "confetti";
