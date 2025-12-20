@@ -3,7 +3,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+  /* background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%); */
+  background: linear-gradient(135deg, #ffb3b3, #ffd6cc);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   overflow: hidden; /* Prevents scrollbars from confetti */
@@ -32,24 +33,27 @@ button {
 button:hover {
   background: white;
 }
+
 .prev {
   left: 10px;
 }
+
 .next {
   right: 10px;
 }
 
 .card {
   background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 60px rgba(255, 105, 135, 0.35);
   width: 90%;
   max-width: 400px;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); */
   text-align: center;
   position: relative;
   animation: cardPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  backdrop-filter: blur(10px);
 }
 
 .slider-container {
