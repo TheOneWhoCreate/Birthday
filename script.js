@@ -49,7 +49,7 @@ const palettes = {
     party: ["#ff6b6b", "#ffd93d", "#6bcbff", "#6bff91", "#c77dff", "#ff8fab"],
     neon: ["#ff005d", "#00f5d4", "#fee440", "#8338ec", "#fb5607", "#3a86ff"],
     pastel: ["#fbb1bd", "#ffd6a5", "#cdb4db", "#bde0fe", "#caffbf", "#fff1c1"],
-    // vibrant: ["#ff4d6d", "#ffb400", "#00b8a9", "#f0f3bd", "#9bc53d", "#5bc0eb"],
+    vibrant: ["#ff4d6d", "#ffb400", "#00b8a9", "#f0f3bd", "#9bc53d", "#5bc0eb"],
     gold: ["#d4af37", "#ffd700", "#ffecb3", "#fff8e1", "#f5f5dc", "#faf0be"],
 };
 
