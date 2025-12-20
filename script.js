@@ -69,7 +69,7 @@ function createConfetti() {
         confetti.style.backgroundColor =
             selectedPalette[Math.floor(Math.random() * selectedPalette.length)];
         confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
-        confetti.style.opacity = 1;
+        confetti.style.opacity = Math.random() * 0.2 + 0.8;;
         confetti.style.borderRadius = Math.random() > 0.5 ? "50%" : "0";
         const size = Math.random() * 6 + 6;
         confetti.style.width = confetti.style.height = size + "px";
