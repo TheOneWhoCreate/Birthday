@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "BirthdayFont";
+  src: url("fonts/Amore\ Christmas.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BirthdayFont1";
+  src: url("fonts/ChristmasHearths.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 body {
   display: flex;
   justify-content: center;
@@ -10,14 +25,34 @@ body {
   overflow: hidden; /* Prevents scrollbars from confetti */
 }
 
-h1 {
-  color: #ff6b6b;
-  font-size: 2.5em;
-  margin-bottom: 10px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+.wish {
+  padding: 18px 20px;
+  border-radius: 14px;
+  /* margin-bottom: 20px; */
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.589);
 }
 
-button {
+/* Heading text */
+.wish p:first-child {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: "BirthdayFont";
+  color: #ff5c8a;
+  margin: 0 0 6px 0;
+}
+
+/* Subtitle text */
+.wish .message {
+  font-size: 1rem;
+  font-family: "BirthdayFont1";
+  color: #6b4e57;
+  margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;            
+}
+
+.slider-container button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -54,6 +89,9 @@ button:hover {
   text-align: center;
   position: relative;
   animation: cardPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .slider-container {
@@ -62,12 +100,6 @@ button:hover {
   border-radius: 15px;
   overflow: hidden;
   height: 250px;
-}
-
-.message {
-  color: #555;
-  font-style: italic;
-  margin-bottom: 20px;
 }
 
 /* Slider Container */
@@ -116,6 +148,32 @@ button:hover {
 
 .dot.active {
   background: #ff6b6b;
+}
+
+.music-control {
+  margin-top: 22px;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+#musicBtn {
+  background: linear-gradient(135deg, #ff6b8a, #ffb3c6);
+  position: static;
+  border: none;
+  color: white;
+  padding: 12px 26px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(255, 105, 135, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#musicBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 105, 135, 0.55);
 }
 
 /* Confetti wrapper – full screen layer */

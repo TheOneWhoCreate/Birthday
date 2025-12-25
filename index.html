@@ -10,20 +10,36 @@
     <div class="card">
       <div id="confetti-wrapper"></div>
 
-      <h1>Happy Birthday!</h1>
-      <p class="message">Wishing you a day filled with love and laughter!</p>
+      <div class="wish">
+        <p>Happy Birthday!</p>
+        <p class="message">
+          Happy Birthday to my best friend I’m so grateful for you and for
+          all the memories we’ve shared. You make my life brighter just by being
+          in it, and I honestly don’t know what I’d do without you. Thank you
+          for always being there, for the laughs, the support, and the love. I
+          hope this year brings you happiness, success, and everything you
+          deserve. 
+        </p>
+      </div>
 
       <div class="slider-container">
         <div class="slides" id="slides">
           <img src="f1.jpg" alt="Birthday 1" />
           <img src="f2.jpg" alt="Birthday 2" />
-          <img src="f3.jpg" alt="Birthday 3" />
+          <img src="f2.jpg" alt="Birthday 3" />
+          <img src="f1.jpg" alt="Birthday 4" />
+          <img src="f2.jpg" alt="Birthday 5" />
+          <img src="f1.jpg" alt="Birthday 6" />
         </div>
         <button class="prev" onclick="manualMove(-1)">❮</button>
         <button class="next" onclick="manualMove(1)">❯</button>
       </div>
 
       <div class="dots" id="dots"></div>
+      <div class="music-control">
+        <button id="musicBtn">▶ Play Music</button>
+        <audio id="bgMusic" src="music.mp3"></audio>
+      </div>
     </div>
 
     <script src="script.js" defer></script>

@@ -79,8 +79,39 @@ function createConfetti() {
     }
 }
 
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+let isPlaying = false;
+let fadeInterval = null;
+
+musicBtn.addEventListener("click", () => {
+  if (!isPlaying) {
+    // ▶ PLAY with FADE-IN
+    music.volume = 0;
+    music.play();
+
+    let v = 0;
+    fadeInterval = setInterval(() => {
+      v += 0.05;
+      music.volume = Math.min(v, 0.5);
+      if (v >= 0.5) clearInterval(fadeInterval);
+    }, 100);
+
+    musicBtn.textContent = "⏸ Pause Music";
+    isPlaying = true;
+
+  } else {
+    // ⏸ PAUSE (stop fade if running)
+    if (fadeInterval) clearInterval(fadeInterval);
+    music.pause();
+    musicBtn.textContent = "▶ Play Music";
+    isPlaying = false;
+  }
+});
+
+
 // Create confetti periodically
 setInterval(createConfetti, 2500);
-
 updateSlide();
 createDots();
