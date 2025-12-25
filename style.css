@@ -50,7 +50,7 @@ body {
 .card {
   width: 90%;
   max-width: 400px;
-  padding: clamp(16px, 6vw, 30px);
+  padding: clamp(12px, 4vw, 24px) clamp(16px, 6vw, 30px);
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.9);
   /* fallback for browsers without backdrop-filter */
@@ -92,7 +92,6 @@ body {
   letter-spacing: clamp(0.2rem, 0.8vw, 0.5rem);
 }
 
-
 .wish .message {
   margin: 0;
   font-size: clamp(0.9rem, 3.5vw, 1.1rem);
@@ -101,7 +100,6 @@ body {
   text-align: justify;
   word-break: break-word;
 }
-
 
 /* =========================
    SLIDER
