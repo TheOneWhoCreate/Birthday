@@ -193,7 +193,7 @@ body {
 
 #musicBtn {
   border: none;
-  padding: clamp(10px, 4vw, 12px) clamp(20px, 8vw, 26px);
+  padding: 10px 10px;
   font-size: clamp(0.85rem, 3.5vw, 1rem);
   border-radius: 25px;
   background: linear-gradient(135deg, #ff6b8a, #ffb3c6);
