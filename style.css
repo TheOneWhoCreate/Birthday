@@ -147,7 +147,6 @@ body {
   cursor: pointer;
   border-radius: 50%;
   z-index: 10;
-
   transition: background 0.3s;
 }
 
@@ -190,7 +189,7 @@ body {
    ========================= */
 
 .music-control {
-  margin: 22px 0 10px;
+  margin: 10px 0 10px;
   width: 100%;
 }
 
