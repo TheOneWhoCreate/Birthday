@@ -1,118 +1,121 @@
+/* =========================
+   FONT LOADING (SAFE)
+   ========================= */
+
 @font-face {
   font-family: "BirthdayFont";
-  src: url("fonts/Amore\ Christmas.otf") format("opentype");
+  src: url("fonts/Amore Christmas.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "BirthdayFont1";
-  src: url("fonts/ChristmasHearths.ttf") format("opentype");
+  src: url("fonts/ChristmasHearths.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
+/* =========================
+   GLOBAL RESET
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+   ========================= */
 
 body {
+  margin: 0;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  /* background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%); */
   background: linear-gradient(135deg, #ffb3b3, #ffd6cc);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  overflow: hidden; /* Prevents scrollbars from confetti */
+  overflow: hidden;
 }
 
-.wish {
-  padding: 18px 20px;
-  border-radius: 14px;
-  /* margin-bottom: 20px; */
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.589);
-}
-
-/* Heading text */
-.wish p:first-child {
-  font-size: 3rem;
-  font-weight: 700;
-  font-family: "BirthdayFont";
-  color: #ff5c8a;
-  margin: 0 0 6px 0;
-}
-
-/* Subtitle text */
-.wish .message {
-  font-size: 1rem;
-  font-family: "BirthdayFont1";
-  color: #6b4e57;
-  margin: 0;
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;            
-}
-
-.slider-container button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.7);
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: 0.3s;
-  z-index: 10;
-}
-
-button:hover {
-  background: white;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
+/* =========================
+   CARD
+   ========================= */
 
 .card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 20px 60px rgba(255, 105, 135, 0.35);
   width: 90%;
   max-width: 400px;
   padding: 30px;
   border-radius: 20px;
-  /* box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); */
+  background: rgba(255, 255, 255, 0.9);
+  /* fallback for browsers without backdrop-filter */
+  box-shadow: 0 20px 60px rgba(255, 105, 135, 0.35);
   text-align: center;
   position: relative;
-  animation: cardPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: cardPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.slider-container {
-  position: relative;
-  margin: 20px 0;
-  border-radius: 15px;
-  overflow: hidden;
-  height: 250px;
+/* Blur only if supported */
+@supports (
+  (-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))
+) {
+  .card {
+    background: rgba(255, 255, 255, 0.75);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
 }
 
-/* Slider Container */
+/* =========================
+   WISH TEXT
+   ========================= */
+
+.wish {
+  padding: 10px 10px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.6);
+}
+
+.wish p:first-child {
+  margin: 0 0 6px;
+  font-size: 4rem;
+  font-weight: 700;
+  font-family: "BirthdayFont", cursive, "Segoe UI", sans-serif;
+  color: #ff5c8a;
+  letter-spacing: 0.5rem;
+}
+
+.wish .message {
+  margin: 0;
+  font-size: 1rem;
+  font-family: "BirthdayFont1", "Segoe UI", sans-serif;
+  color: #6b4e57;
+  text-align: justify;
+  word-break: break-word;
+}
+
+/* =========================
+   SLIDER
+   ========================= */
+
 .slider-container {
   position: relative;
   width: 100%;
-  height: 300px; /* Adjust height here */
+  height: 300px;
+  margin: 10px 0;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* The strip containing all images */
 .slides {
   display: flex;
   width: 100%;
@@ -127,14 +130,46 @@ button:hover {
   flex-shrink: 0;
   border: 5px solid #ff6b6b;
   border-radius: 10px;
-  box-sizing: border-box;
 }
+
+/* =========================
+   SLIDER BUTTONS
+   ========================= */
+
+.slider-container button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+
+  transition: background 0.3s;
+}
+
+.slider-container button:hover {
+  background: #ffffff;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* =========================
+   DOTS
+   ========================= */
 
 .dots {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 10px;
 }
 
 .dot {
@@ -143,29 +178,29 @@ button:hover {
   background: #ccc;
   border-radius: 50%;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .dot.active {
   background: #ff6b6b;
 }
 
+/* =========================
+   MUSIC BUTTON
+   ========================= */
+
 .music-control {
-  margin-top: 22px;
-  margin-bottom: 10px;
-  text-align: center;
+  margin: 22px 0 10px;
   width: 100%;
 }
 
 #musicBtn {
-  background: linear-gradient(135deg, #ff6b8a, #ffb3c6);
-  position: static;
   border: none;
-  color: white;
   padding: 12px 26px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #ff6b8a, #ffb3c6);
+  color: #fff;
   font-size: 0.95rem;
   font-weight: 600;
-  border-radius: 25px;
   cursor: pointer;
   box-shadow: 0 6px 15px rgba(255, 105, 135, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -176,7 +211,10 @@ button:hover {
   box-shadow: 0 8px 20px rgba(255, 105, 135, 0.55);
 }
 
-/* Confetti wrapper – full screen layer */
+/* =========================
+   CONFETTI
+   ========================= */
+
 #confetti-wrapper {
   position: fixed;
   inset: 0;
@@ -196,6 +234,10 @@ button:hover {
   pointer-events: none;
   z-index: 1001;
 }
+
+/* =========================
+   ANIMATIONS
+   ========================= */
 
 @keyframes fall {
   to {
