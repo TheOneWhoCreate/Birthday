@@ -242,11 +242,6 @@ body {
    ========================= */
 
 @media (max-width: 600px) {
-  body {
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-
   .card {
     padding: 18px;
     border-radius: 16px;
