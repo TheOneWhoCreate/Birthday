@@ -82,7 +82,6 @@ body {
 .wish {
   margin: auto;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.75);
 }
 
 .wish p:first-child {
@@ -259,4 +258,5 @@ body {
     opacity: 1;
   }
 }
+
 
