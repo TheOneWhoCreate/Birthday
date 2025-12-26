@@ -55,6 +55,9 @@ const palettes = {
 
 const paletteNames = Object.keys(palettes);
 
+const isMobile = window.innerWidth < 768;
+const CONFETTI_COUNT = isMobile ? 30 : 80;
+
 // ---------- CONFETTI ----------
 const wrapper = document.getElementById("confetti-wrapper");
 function createConfetti() {
@@ -62,7 +65,7 @@ function createConfetti() {
     const selectedPalette = palettes[paletteNames[paletteIndex]];
     paletteIndex = (paletteIndex + 1) % paletteNames.length;
 
-    for (let i = 0; i < 80; i++) {   // ⬅ reduce from 100 (see below)
+    for (let i = 0; i < CONFETTI_COUNT; i++) {   // ⬅ reduce from 100 (see below)
         const confetti = document.createElement("div");
         confetti.className = "confetti";
         confetti.style.left = Math.random() * 100 + "vw";
@@ -86,28 +89,29 @@ let isPlaying = false;
 let fadeInterval = null;
 
 musicBtn.addEventListener("click", () => {
-  if (!isPlaying) {
-    // ▶ PLAY with FADE-IN
-    music.volume = 0;
-    music.play();
+    if (!isPlaying) {
+        // ▶ PLAY with FADE-IN
+        music.volume = 0;
+        music.muted = false;
+        music.play();
 
-    let v = 0;
-    fadeInterval = setInterval(() => {
-      v += 0.05;
-      music.volume = Math.min(v, 0.5);
-      if (v >= 0.5) clearInterval(fadeInterval);
-    }, 100);
+        let v = 0;
+        fadeInterval = setInterval(() => {
+            v += 0.05;
+            music.volume = Math.min(v, 0.5);
+            if (v >= 0.5) clearInterval(fadeInterval);
+        }, 100);
 
-    musicBtn.textContent = "⏸ Pause Music";
-    isPlaying = true;
+        musicBtn.textContent = "⏸ Pause Music";
+        isPlaying = true;
 
-  } else {
-    // ⏸ PAUSE (stop fade if running)
-    if (fadeInterval) clearInterval(fadeInterval);
-    music.pause();
-    musicBtn.textContent = "▶ Play Music";
-    isPlaying = false;
-  }
+    } else {
+        // ⏸ PAUSE (stop fade if running)
+        if (fadeInterval) clearInterval(fadeInterval);
+        music.pause();
+        musicBtn.textContent = "▶ Play Music";
+        isPlaying = false;
+    }
 });
 
 
