@@ -240,6 +240,49 @@ body {
 }
 
 /* =========================
+   MOBILE RESPONSIVE
+   ========================= */
+
+@media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .wish p:first-child {
+    font-size: 2.6rem;
+    letter-spacing: 0.2rem;
+    line-height: 1.1;
+  }
+
+  .wish .message {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  .slider-container {
+    height: 200px;
+  }
+
+  .slider-container button {
+    padding: 6px;
+    font-size: 16px;
+    opacity: 0.85;
+    touch-action: manipulation;
+  }
+
+  .dots {
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================
    ANIMATIONS
    ========================= */
 
@@ -259,4 +302,3 @@ body {
     opacity: 1;
   }
 }
-
