@@ -55,22 +55,24 @@ const palettes = {
 
 const paletteNames = Object.keys(palettes);
 
-const isMobile = window.innerWidth < 600;
+const isMobile = window.innerWidth < 768;
 
+// ---------- CONFETTI ----------
+const wrapper = document.getElementById("confetti-wrapper");
 function createConfetti() {
-    const count = isMobile ? 20 : 80;
-
+    const CONFETTI_COUNT = isMobile ? 30 : 80;
+    // Pick palette in sequence
     const selectedPalette = palettes[paletteNames[paletteIndex]];
     paletteIndex = (paletteIndex + 1) % paletteNames.length;
 
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < CONFETTI_COUNT; i++) {   // ⬅ reduce from 100 (see below)
         const confetti = document.createElement("div");
         confetti.className = "confetti";
         confetti.style.left = Math.random() * 100 + "vw";
         confetti.style.backgroundColor =
             selectedPalette[Math.floor(Math.random() * selectedPalette.length)];
         confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
-        confetti.style.opacity = Math.random() * 0.2 + 0.8;
+        confetti.style.opacity = Math.random() * 0.2 + 0.8;;
         confetti.style.borderRadius = Math.random() > 0.5 ? "50%" : "0";
         const size = Math.random() * 6 + 6;
         confetti.style.width = confetti.style.height = size + "px";
