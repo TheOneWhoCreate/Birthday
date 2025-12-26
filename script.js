@@ -118,4 +118,5 @@ musicBtn.addEventListener("click", () => {
 // Create confetti periodically
 setInterval(createConfetti, 2500);
 updateSlide();
+
 createDots();
