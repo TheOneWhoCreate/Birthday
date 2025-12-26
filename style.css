@@ -80,7 +80,6 @@ body {
    ========================= */
 
 .wish {
-  margin: auto;
   border-radius: 14px;
 }
 
@@ -258,5 +257,6 @@ body {
     opacity: 1;
   }
 }
+
 
 
