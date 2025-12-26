@@ -80,9 +80,7 @@ body {
    ========================= */
 
 .wish {
-  margin: auto;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.75);
+  border-radius: 15px
 }
 
 .wish p:first-child {
