@@ -56,11 +56,11 @@ const palettes = {
 const paletteNames = Object.keys(palettes);
 
 const isMobile = window.innerWidth < 768;
+const CONFETTI_COUNT = isMobile ? 30 : 80;
 
 // ---------- CONFETTI ----------
 const wrapper = document.getElementById("confetti-wrapper");
 function createConfetti() {
-    const CONFETTI_COUNT = isMobile ? 30 : 80;
     // Pick palette in sequence
     const selectedPalette = palettes[paletteNames[paletteIndex]];
     paletteIndex = (paletteIndex + 1) % paletteNames.length;
@@ -118,5 +118,4 @@ musicBtn.addEventListener("click", () => {
 // Create confetti periodically
 setInterval(createConfetti, 2500);
 updateSlide();
-
 createDots();
