@@ -65,7 +65,7 @@ function createConfetti() {
     const selectedPalette = palettes[paletteNames[paletteIndex]];
     paletteIndex = (paletteIndex + 1) % paletteNames.length;
 
-    for (let i = 0; i < CONFETTI_COUNT; i++) {   // ⬅ reduce from 100 (see below)
+    for (let i = 0; i < CONFETTI_COUNT; i++) { 
         const confetti = document.createElement("div");
         confetti.className = "confetti";
         confetti.style.left = Math.random() * 100 + "vw";
