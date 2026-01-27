@@ -245,8 +245,6 @@ body {
   .card {
     padding: 18px;
     border-radius: 16px;
-    height: 60vh;
-    max-height: 420px;
   }
 
   .wish p:first-child {
