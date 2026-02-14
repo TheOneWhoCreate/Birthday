@@ -289,7 +289,7 @@ body {
 /* -------- iPhone-specific tweaks -------- */
 @media only screen and (min-device-width: 320px) and (max-device-width: 428px) and (-webkit-min-device-pixel-ratio: 2) {
   .slider-container {
-    height: 260px; /* slightly taller on iPhones */
+    height: 350px; /* slightly taller on iPhones */
   }
 
   .slider-container button {
@@ -330,4 +330,5 @@ body {
     opacity: 1;
   }
 }
+
 
