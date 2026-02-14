@@ -263,7 +263,7 @@ body {
   }
 
   .slider-container {
-    height: 240px; /* increased height for better visuals */
+    height: 350px; /* increased height for better visuals */
     overflow: hidden;
   }
 
@@ -330,3 +330,4 @@ body {
     opacity: 1;
   }
 }
+
