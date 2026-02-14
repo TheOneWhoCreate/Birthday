@@ -263,7 +263,7 @@ body {
   }
 
   .slider-container {
-    height: 350px; /* increased height for better visuals */
+    height: 250px; /* increased height for better visuals */
     overflow: hidden;
   }
 
@@ -286,8 +286,8 @@ body {
   }
 }
 
-/* -------- iPhone-specific tweaks -------- */
-@media only screen and (min-device-width: 320px) and (max-device-width: 428px) and (-webkit-min-device-pixel-ratio: 2) {
+/* -------- Mid-range Phone-specific tweaks -------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 430px) and (-webkit-min-device-pixel-ratio: 2) {
   .slider-container {
     height: 350px; /* slightly taller on iPhones */
   }
@@ -295,18 +295,6 @@ body {
   .slider-container button {
     padding: 9px;
     font-size: 17px;
-  }
-}
-
-/* -------- Android-style tweaks -------- */
-@media only screen and (min-width: 360px) and (max-width: 440px) and (min-resolution: 2.5dppx) {
-  .slider-container {
-    height: 350px; /* optimized for Android mid-range phones */
-  }
-
-  .slider-container button {
-    padding: 8px;
-    font-size: 16px;
   }
 }
 
@@ -330,5 +318,6 @@ body {
     opacity: 1;
   }
 }
+
 
 
